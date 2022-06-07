@@ -22,11 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
-            android:letterSpacing="0.3"
-            android:text="Modificar paciente"
+            android:letterSpacing="0.2"
+            android:text="Detalles del paciente"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="#24ABA3"
+            android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -125,7 +125,9 @@
             android:background="@drawable/rounded_border_btn"
             android:letterSpacing="0.52"
             android:text="Registrar"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            />
 
         <Button
             android:id="@+id/activity_modificarcuenta_btn_cancelarmodificar"
@@ -135,7 +137,8 @@
             android:background="@drawable/rounded_cancelar_btn"
             android:letterSpacing="0.52"
             android:text="Cancelar"
-            android:textColor="#827D7D" />
+            android:textColor="#B84747"
+            android:textSize="18sp" />
 
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
