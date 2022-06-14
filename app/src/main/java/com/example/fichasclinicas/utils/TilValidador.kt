@@ -2,8 +2,12 @@ package com.example.fichasclinicas.utils
 
 import android.util.Patterns
 import com.google.android.material.textfield.TextInputLayout
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TilValidador constructor(til: TextInputLayout) {
+    private val formatter = SimpleDateFormat("yyyy-MM-dd")
     private val til: TextInputLayout = til
     private val value: String = til.editText?.text.toString()
     private var required: Boolean = false
@@ -21,6 +25,20 @@ class TilValidador constructor(til: TextInputLayout) {
 
     private fun mustValidate(): Boolean {
         return (!this.required && this.value.isNotEmpty() || !invalid)
+    }
+
+    fun dateAfter(date: Date): TilValidador {
+        if (mustValidate()) {
+            var invalidField = false
+            try {
+                val dateValue = formatter.parse(this.value)
+                invalidField = !dateValue.after(date)
+            } catch (e: Exception) {
+                invalidField = true
+            }
+            this.setError(invalidField, "La fecha no puede ser anterior a ${formatter.format(date)}")
+        }
+        return this
     }
 
     fun required(): TilValidador {

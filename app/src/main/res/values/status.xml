@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="status_array">
+        <item>Sin registros</item>
+        <item>En recepcion</item>
+        <item>Ingresado</item>
+        <item>En procedimiento</item>
+    </string-array>
+</resources>

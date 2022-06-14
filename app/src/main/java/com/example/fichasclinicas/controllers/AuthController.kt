@@ -3,6 +3,7 @@ package com.example.fichasclinicas.controllers
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import com.example.fichasclinicas.LoginActivity
 import com.example.fichasclinicas.MainActivity
 
 class AuthController constructor(ctx: Context) {
@@ -16,5 +17,13 @@ class AuthController constructor(ctx: Context) {
         } else {
             Toast.makeText(this.ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun Register(nombre :String, apellido : String, email : String, pass : String){
+        Toast.makeText(this.ctx,"Cuenta $email registrada", Toast.LENGTH_LONG).show()
+        val intent = Intent(this.ctx, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        this.ctx.startActivity(intent)
+
     }
 }

@@ -33,15 +33,14 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/activity_main_lv_agenda"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/activity_mainactivity_linearLayout_header"
         app:layout_constraintBottom_toTopOf="@id/activity_mainactivity_linearlayout_btns"
-        app:layout_constraintTop_toBottomOf="@id/activity_mainactivity_linearLayout_header">
-
-    </LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/activity_mainactivity_linearlayout_btns"
@@ -85,5 +84,7 @@
         app:menu="@menu/menu"
         app:itemIconTint="#FFFFFF"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

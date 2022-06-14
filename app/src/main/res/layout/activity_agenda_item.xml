@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgendaItemActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="8pt"
+        android:paddingTop="8pt"
+        android:paddingRight="8pt"
+        android:paddingBottom="8pt">
+
+        <TextView
+            android:id="@+id/activity_agenda_item_tv_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora" />
+        <TextView
+            android:id="@+id/activity_agenda_item_tv_paciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nmbre paciente" />
+        <TextView
+            android:id="@+id/activity_agenda_item_tv_medico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="medico" />
+        <TextView
+            android:id="@+id/activity_agenda_item_tv_examen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="examen" />
+        <TextView
+            android:id="@+id/activity_agenda_item_tv_observacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="observacion" />
+    </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

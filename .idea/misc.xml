@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/activity_agenda_item.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/activity_agregar_paciente.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/agenda_item.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/confirmar_crear_cuenta_activity.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/crear_cuenta_activity.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/login_activity.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas - copia (2)/app/src/main/res/layout/main_activity.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/drawable/gradient_background.xml" value="0.3675" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/drawable/ic_buscar.xml" value="0.3675" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/drawable/rounded_border_btn.xml" value="0.3675" />
@@ -11,9 +18,10 @@
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/activity_agregar_paciente.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/activity_mi_cuente.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/activity_modificar_paciente.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/agenda_item.xml" value="0.3229166666666667" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/confirmar_crear_cuenta_activity.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/crear_cuenta_activity.xml" value="0.33" />
-        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/login_activity.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/login_activity.xml" value="0.25" />
         <entry key="..\:/Users/surro/OneDrive/CIISA/AndroidProjects/FichasClinicas/app/src/main/res/layout/main_activity.xml" value="0.33" />
       </map>
     </option>

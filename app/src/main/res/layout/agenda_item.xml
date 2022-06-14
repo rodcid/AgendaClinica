@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48pt"
+    android:paddingVertical="4pt">
+
+
+    <TextView
+        android:id="@+id/agenda_item_tv_hora"
+        android:layout_width="36pt"
+        android:layout_height="match_parent"
+        android:text="Hora"
+        android:gravity="center"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/agenda_item_tv_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre paciente"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/agenda_item_tv_hora"/>
+    <TextView
+        android:id="@+id/agenda_item_tv_medico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="medico"
+        android:layout_below="@id/agenda_item_tv_paciente"
+        android:layout_toRightOf="@id/agenda_item_tv_hora"/>
+    <TextView
+        android:id="@+id/agenda_item_tv_examen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="examen"
+        android:layout_toRightOf="@id/agenda_item_tv_hora"
+        android:layout_below="@id/agenda_item_tv_medico"/>
+    <TextView
+        android:id="@+id/agenda_item_tv_observacion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="observacion"
+        android:layout_toRightOf="@id/agenda_item_tv_hora"
+        android:layout_below="@id/agenda_item_tv_examen"/>
+    <Spinner
+        android:id="@+id/agenda_item_spn_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

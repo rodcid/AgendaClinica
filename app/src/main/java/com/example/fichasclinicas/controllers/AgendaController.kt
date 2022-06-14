@@ -15,6 +15,7 @@ class AgendaController constructor(ctx : Context) {
                 medico = "Medico $i",
                 hora = "11:00",
                 examen = "Endoscopia",
+                observacion = "sin observacion",
                 estado = "en procedimiento",
                 activo = true
             ))

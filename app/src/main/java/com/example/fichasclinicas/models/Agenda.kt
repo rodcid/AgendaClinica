@@ -8,6 +8,7 @@ data class Agenda(
     val medico : String,
     val hora : String,
     val examen : String,
+    val observacion : String,
     val estado : String,
     val activo : Boolean
 ) : Serializable
