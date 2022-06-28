@@ -18,8 +18,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_lv_agenda">
 
+        <!--
         <Button
             android:id="@+id/activity_mainactivity_selectpabellon"
             android:layout_width="wrap_content"
@@ -30,6 +32,17 @@
             android:paddingHorizontal="12pt"
             android:text="Pabellon 3"
             android:textColor="#FAFAFA" />
+        -->
+
+        <Spinner
+            android:id="@+id/activity_main_activity_spn_box"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:spinnerMode="dialog">
+
+        </Spinner>
+
 
     </LinearLayout>
 
@@ -61,17 +74,15 @@
             android:text="Agregar Paciente"
             android:textColor="#FAFAFA" />
 
-        <!--<Button
-            android:id="@+id/activity_mainactivity_btn_pabellon"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/activity_mainactivity_btn_logout"
+            android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32pt"
-            android:layout_marginVertical="8pt"
-            android:background="#6B60EB"
-            android:text="Pabellon"
-            android:textColor="#FAFAFA" />
-        -->
-
+            android:layout_marginBottom="4pt"
+            android:background="#006B60EB"
+            android:text="Cerrar Sesion"
+            android:textColor="#575656" />
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

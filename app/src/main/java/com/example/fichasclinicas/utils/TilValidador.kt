@@ -32,11 +32,11 @@ class TilValidador constructor(til: TextInputLayout) {
             var invalidField = false
             try {
                 val dateValue = formatter.parse(this.value)
-                invalidField = !dateValue.after(date)
+                invalidField = !dateValue.before(date)
             } catch (e: Exception) {
                 invalidField = true
             }
-            this.setError(invalidField, "La fecha no puede ser anterior a ${formatter.format(date)}")
+            this.setError(invalidField, "La fecha no puede ser posterior a ${formatter.format(date)}")
         }
         return this
     }

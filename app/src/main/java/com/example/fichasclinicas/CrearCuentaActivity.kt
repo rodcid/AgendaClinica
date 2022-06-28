@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.example.fichasclinicas.controllers.AuthController
+import com.example.fichasclinicas.models.User
 import com.example.fichasclinicas.utils.TilValidador
 import com.example.fichasclinicas.utils.showDatePickerDialog
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
 import java.util.*
 
 class CrearCuentaActivity : AppCompatActivity() {
@@ -31,11 +33,11 @@ class CrearCuentaActivity : AppCompatActivity() {
         }
 
         btnCrearCuenta.setOnClickListener {
-            val nombre = tilNombre.editText?.text
-            val apellido = tilApellido.editText?.text
+            val nombre = tilNombre.editText?.text.toString()
+            val apellido = tilApellido.editText?.text.toString()
             val birthdate = tilBirth.editText?.text.toString()
-            val email = tilEmail.editText?.text
-            val clave = tilClave.editText?.text
+            val email = tilEmail.editText?.text.toString()
+            val clave = tilClave.editText?.text.toString()
 
             val nombrevalido = TilValidador(tilNombre).required().isValid()
             val apellidovalido = TilValidador(tilApellido).required().isValid()
@@ -44,10 +46,18 @@ class CrearCuentaActivity : AppCompatActivity() {
             val clavevalida = TilValidador(tilClave).required().isValid()
 
 
+
+
             if(nombrevalido && apellidovalido && birthdatevalido && emailvalido && clavevalida){
-                AuthController(this)
-                val intent = Intent(this, ConfirmarCrearCuentaActivity::class.java)
-                startActivity(intent)
+                val user = User(
+                    id = null,
+                    nombre = nombre,
+                    apellido = apellido,
+                    birthdate = SimpleDateFormat("yyyy-MM-dd").parse(birthdate),
+                    email = email,
+                    clave = clave
+                )
+                AuthController(this).Register(user)
             }else{
                 Toast.makeText(this,"Campos invalidos",Toast.LENGTH_SHORT).show()
             }

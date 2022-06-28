@@ -1,9 +1,11 @@
 package com.example.fichasclinicas.models
 
-import java.io.Serializable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class Agenda(
-    val id : Long?,
+@Entity(tableName = "agenda")
+data class AgendaEntity (
+    @PrimaryKey(autoGenerate = true)val id : Long?,
     val paciente : String,
     val medico : String,
     val hora : String,
@@ -12,4 +14,4 @@ data class Agenda(
     val estado : String,
     val activo : Boolean,
     val box : Int
-) : Serializable
+    )

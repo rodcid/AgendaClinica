@@ -20,10 +20,6 @@ class LoginActivity : AppCompatActivity() {
         val tilEmail = findViewById<TextInputLayout>(R.id.activity_login_til_user)      // se captura el til email
         val tilPass = findViewById<TextInputLayout>(R.id.activity_login_til_pass)       // se captura el til de la pass
 
-        //set de datos para no ingresarlos a cada rato.
-        tilEmail.editText?.setText("ex@a.a")
-        tilPass.editText?.setText("123")
-
         //luego se trabaja en el proceso al clickear el boton.
         btnIngresar.setOnClickListener{
             val email = tilEmail.editText?.text.toString()  //se inicializa el tilemail
