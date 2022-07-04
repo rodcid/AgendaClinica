@@ -16,12 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         val lvagenda = findViewById<ListView>(R.id.activity_main_lv_agenda)
         val spnBox = findViewById<Spinner>(R.id.activity_main_activity_spn_box)
-
-        val allAgenda = AgendaController(this).getAll()
-        val adapter = AgendaAdapter(this,allAgenda)
-
-        lvagenda.adapter = adapter
-
         val spinnerAdapter = ArrayAdapter.createFromResource(
             this,
             R.array.box_array,
@@ -29,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         )
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spnBox.adapter = spinnerAdapter
+
+        val authController = AuthController(this)
+        val allAgenda = AgendaController(this,authController.getSessionUserId()).getAll()
+        val adapter = AgendaAdapter(this,allAgenda)
+        lvagenda.adapter = adapter
+
 
         lvagenda.setOnItemClickListener { adapterView, view, i, l ->
             run{

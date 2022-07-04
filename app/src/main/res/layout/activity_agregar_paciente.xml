@@ -18,14 +18,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/activity_agregarpaciente_tv_agregarpaciente"
+            android:id="@+id/activity_agregarpaciente_tv_titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elegantTextHeight="true"
             android:letterSpacing="0.1"
-            android:text="Agregar paciente"
+            android:text="Agregar Paciente"
             android:textAlignment="center"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
 
             android:textColor="#000000"
             android:textSize="24sp"
@@ -39,10 +39,11 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/activity_agregarpaciente_til_nombrepaciente"
+                >
 
                 <EditText
-                    android:id="@+id/activity_agregarpaciente_til_nombrepaciente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4pt"
@@ -53,28 +54,20 @@
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <Spinner
+                android:id="@+id/activity_agregar_paciente_spnHora"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8pt"
+                android:layout_height="48dp"
+                android:spinnerMode="dialog"
+                android:gravity="center"/>
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_agregarpaciente_til_medico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/activity_agregarpaciente_til_hora"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="4pt"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="Hora"
-                    android:inputType="textPersonName" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/activity_agregarpaciente_til_medico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4pt"
@@ -86,11 +79,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_agregarpaciente_til_examen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/activity_agregarpaciente_til_examen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4pt"
@@ -102,11 +95,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_agregarpaciente_til_observacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/activity_agregarpaciente_til_observacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4pt"
@@ -125,25 +118,20 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_border_btn"
             android:letterSpacing="0.52"
-            android:text="Registrar"
+            android:layout_marginBottom="4dp"
+            android:text="Aceptar"
             android:textSize="18sp"
-
             android:textColor="#FFFFFF" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
 
         <Button
             android:id="@+id/activity_agregarpaciente_btn_cancelaragregar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4pt"
-            android:background="@drawable/rounded_cancelar_btn"
+            android:background="#00FFFFFF"
             android:letterSpacing="0.52"
             android:text="Cancelar"
-            android:textColor="#B84747"
+            android:textColor="#8E8D8D"
             android:textSize="18sp" />
 
     </LinearLayout>

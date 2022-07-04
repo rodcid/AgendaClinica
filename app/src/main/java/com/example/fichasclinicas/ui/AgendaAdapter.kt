@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.example.fichasclinicas.R
 import com.example.fichasclinicas.models.Agenda
 
-class AgendaAdapter(val ctx: Context, val agenda: List<Agenda>):BaseAdapter() {
+class AgendaAdapter(val ctx: Context, private val agenda: List<Agenda>):BaseAdapter() {
     override fun getCount(): Int {
         return agenda.size
     }
@@ -27,9 +27,6 @@ class AgendaAdapter(val ctx: Context, val agenda: List<Agenda>):BaseAdapter() {
     override fun getView(i: Int, view: View?, viewgroup: ViewGroup?): View {
         val inflater = LayoutInflater.from(ctx)
         val rowView = inflater.inflate(R.layout.agenda_item, null)
-
-
-
         val agenda = agenda[i]
 
         val tvHora = rowView.findViewById<TextView>(R.id.agenda_item_tv_hora)
@@ -37,6 +34,7 @@ class AgendaAdapter(val ctx: Context, val agenda: List<Agenda>):BaseAdapter() {
         val tvMedico = rowView.findViewById<TextView>(R.id.agenda_item_tv_medico)
         val tvExamen = rowView.findViewById<TextView>(R.id.agenda_item_tv_examen)
         val tvObservacion = rowView.findViewById<TextView>(R.id.agenda_item_tv_observacion)
+        /*
         val spnStatus = rowView.findViewById<Spinner>(R.id.agenda_item_spn_state)
 
         val adapter = ArrayAdapter.createFromResource(
@@ -47,7 +45,7 @@ class AgendaAdapter(val ctx: Context, val agenda: List<Agenda>):BaseAdapter() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spnStatus.adapter = adapter
 
-
+         */
 
         tvHora.text = agenda.hora
         tvPaciente.text = agenda.paciente

@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AgendaItemActivity">
+    tools:context=".AgendaItemActivity"
+    android:background="@drawable/gradient_background">
 
     <ScrollView
+        android:layout_marginVertical="46pt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,30 +29,63 @@
 
         <TextView
             android:id="@+id/activity_agenda_item_tv_hora"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hora" />
+            android:text="Hora"
+            android:textAlignment="center"
+            android:textSize="62px"/>
         <TextView
             android:id="@+id/activity_agenda_item_tv_paciente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nmbre paciente" />
+            android:text="Nmbre paciente"
+            android:textAlignment="center"
+            android:textSize="62px"/>
         <TextView
             android:id="@+id/activity_agenda_item_tv_medico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="medico" />
+            android:text="medico"
+            android:textAlignment="center"
+            android:textSize="62px"/>
         <TextView
             android:id="@+id/activity_agenda_item_tv_examen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="examen" />
+            android:text="examen"
+            android:textAlignment="center"
+            android:textSize="62px"/>
         <TextView
             android:id="@+id/activity_agenda_item_tv_observacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="observacion" />
+            android:text="observacion"
+            android:textAlignment="center"
+            android:textSize="62px"/>
+
+        <Button
+            android:id="@+id/activity_agenda_iten_btn_updatePaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_btn"
+            android:letterSpacing="0.52"
+            android:layout_marginBottom="4dp"
+            android:text="Actualizar"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="4pt" />
+        <Button
+            android:id="@+id/activity_agenda_iten_btn_eliminarPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_cancelar_btn"
+            android:letterSpacing="0.52"
+            android:text="Eliminar"
+            android:textSize="18sp"
+            android:textColor="#C60000"
+            android:layout_marginBottom="8pt"/>
     </LinearLayout>
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.fichasclinicas.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,8 +11,9 @@ data class AgendaEntity (
     val medico : String,
     val hora : String,
     val examen : String,
-    val observacion : String,
+    val observacion : String?,
     val estado : String,
-    val activo : Boolean,
-    val box : Int
+    val activo : Boolean = false,
+    val box : Int,
+    @ColumnInfo(name = "user_id")val userId: Long,
     )

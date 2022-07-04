@@ -10,14 +10,21 @@ import com.example.fichasclinicas.LoginActivity
 import com.example.fichasclinicas.MainActivity
 import com.example.fichasclinicas.lib.AppDatabase
 import com.example.fichasclinicas.lib.BCrypt
-import com.example.fichasclinicas.models.User
-import com.example.fichasclinicas.models.UserEntity
+import com.example.fichasclinicas.lib.RetrofitClient
+import com.example.fichasclinicas.models.*
+import com.example.fichasclinicas.services.AuthService
+import retrofit2.Call
+import retrofit2.Callback;
+import retrofit2.Response
 import java.lang.Exception
 import java.util.*
 
 class AuthController constructor(ctx: Context) {
     private val sharedPref = ctx.getSharedPreferences("AGENDA_CLINICA", Context.MODE_PRIVATE)
     private val ctx = ctx
+    private val retrofit = RetrofitClient.getRetrofitInstance()
+    private val authService = retrofit.create(AuthService::class.java)
+
     private val dao = Room.databaseBuilder(
         ctx.applicationContext,
         AppDatabase::class.java, "database-name"
@@ -28,52 +35,67 @@ class AuthController constructor(ctx: Context) {
         .userDao()
 
     fun login(email: String, password: String) {
-        val user = dao.findByEmail(email)
-        if(user == null){
-            Toast.makeText(this.ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
-            return
-        }
-        try {
-            if (BCrypt.checkpw(password,user.clave)) {
-                val sharedEdit = sharedPref.edit()
-                sharedEdit.putLong("user_id",user.id!!)
-                sharedEdit.commit()
-
-
-                Toast.makeText(this.ctx, "Bienvenido ${user.nombre}", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this.ctx, MainActivity::class.java)
-                this.ctx.startActivity(intent)
-            } else {
-                Toast.makeText(this.ctx, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+        val loginPayload = LoginPayloadDTO(email, password)
+        val call = authService.login(loginPayload)
+        call.enqueue(object : Callback<LoginResponseDTO> {
+            override fun onFailure(call: Call<LoginResponseDTO>, t: Throwable) {
+                Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_SHORT).show()
             }
-        }catch (e:Exception){
-            Toast.makeText(this.ctx, "Error general", Toast.LENGTH_SHORT).show()
-        }
+
+            override fun onResponse(
+                call: Call<LoginResponseDTO>,
+                response: Response<LoginResponseDTO>
+            ) {
+                if (response.code() != 200) {
+                    Toast.makeText(ctx, "Error de conexion", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bodyResponse = response.body()
+                    Toast.makeText(ctx, "Bienvenido ${bodyResponse?.user?.id}", Toast.LENGTH_SHORT)
+                        .show()
+                    val sharedEdit = sharedPref.edit()
+                    sharedEdit.putLong("user_id", bodyResponse?.user?.id!!)
+                    sharedEdit.putString("user_jwt", bodyResponse?.jwt!!)
+                    sharedEdit.commit()
+
+                    val intent = Intent(ctx, MainActivity::class.java)
+                    ctx.startActivity(intent)
+                    (ctx as Activity).finish()
+                }
+            }
+        })
+    }
+
+    fun getSessionUserId() : Long{
+        return sharedPref.getLong("user_id", -1)
     }
 
     fun Register(user : User){
-        val hashedPassword = BCrypt.hashpw(user.clave, BCrypt.gensalt())
-        val userEntity = UserEntity(
-            id = null,
-            nombre = user.nombre,
-            apellido = user.apellido,
-            birthdate = user.birthdate,
-            email = user.email,
-            clave = hashedPassword
+        val registerPayloadDTO = RegisterPayloadDTO(
+            user.email,
+            user.email,
+            user.clave
         )
+        val call =authService.register(registerPayloadDTO)
 
+        call.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_SHORT).show()
+            }
 
-
-        try {
-            dao.insert(userEntity)
-            Toast.makeText(this.ctx,"Cuenta ${user.email} registrada", Toast.LENGTH_LONG).show()
-            val intent = Intent(this.ctx, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            this.ctx.startActivity(intent)
-        }catch (e: Exception){
-            Toast.makeText(this.ctx,"cuenta existente", Toast.LENGTH_SHORT).show()
-        }
-
+            override fun onResponse(
+                call: Call<Void>,
+                response: Response<Void>
+            ) {
+                if (response.code() != 200) {
+                    Toast.makeText(ctx, "Cuenta Existente", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(ctx, "Cuenta Registrada", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(ctx, MainActivity::class.java)
+                    ctx.startActivity(intent)
+                    (ctx as Activity).finish()
+                }
+            }
+        })
     }
 
     fun checkUserSession() {
@@ -94,6 +116,7 @@ class AuthController constructor(ctx: Context) {
     fun clearSession() {
         val editor = sharedPref.edit()
         editor.remove("user_id")
+        editor.remove("user_jwt")
         editor.commit()
         val intent = Intent(this.ctx, LoginActivity::class.java)
         this.ctx.startActivity(intent)

@@ -10,7 +10,7 @@ import com.example.fichasclinicas.models.AgendaEntity
 import com.example.fichasclinicas.models.UserEntity
 import com.example.fichasclinicas.utils.Converters
 
-@Database(entities = [UserEntity::class, AgendaEntity::class],  version = 2, exportSchema = false)
+@Database(entities = [UserEntity::class, AgendaEntity::class],  version = 4, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDAO

@@ -9,15 +9,24 @@ import com.example.fichasclinicas.models.AgendaEntity
 
 @Dao
 interface AgendaDAO {
-    @Query("SELECT * FROM agenda")
-    fun findAll (): List<AgendaEntity>
 
+    //Query para mostrar la agenda segun el id del usuario
+    @Query("SELECT * FROM agenda WHERE user_id = :userId")
+    fun findAll (userId: Long?): List<AgendaEntity>
+
+    //Query para buscar por id
+    @Query("SELECT * FROM agenda WHERE id =:id")
+    fun findById(id :Long) : AgendaEntity?
+
+    //Query para agendar un nuevo procedimiento.
     @Insert
     fun insert(agenda: AgendaEntity)
+
 
     @Update
     fun update(agenda: AgendaEntity)
 
+    // Para borrar procedimiento segun id
     @Query("DELETE FROM agenda WHERE id = :id")
     fun delete(id:Long)
 
